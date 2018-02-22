@@ -5,8 +5,14 @@ import axios from 'axios';
 
 
 class App extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
+        this.state = {
+            users: []
+        }
+    }
+
+    componentDidMount() {
         this.getUsers()
     }
 
@@ -17,6 +23,17 @@ class App extends Component {
     }
 
     render() {
+        let users = this.props.users;
+        let newsTemplate;
+
+        if (users.length > 0) {
+            newsTemplate = users.map((user) => (
+                    <h4 key={user.id} className="well">
+                        <strong>{ user.username }</strong> - <em>{user.created_at}</em>
+                    </h4>
+                )
+            )
+        }
         return (
             <div className='container'>
                 <div className='row'>
@@ -24,6 +41,7 @@ class App extends Component {
                         <br />
                             <h1>All Users</h1>
                         <hr /><br />
+                        {newsTemplate}
                     </div>
                 </div>
             </div>

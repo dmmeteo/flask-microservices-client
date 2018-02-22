@@ -1,3 +1,4 @@
+# TODO change npm to yarn
 FROM node:latest
 
 # set working directory
