@@ -13,12 +13,10 @@ ecosystem.json
 memo.txt
 README.md
 
-# docker // This should not be ignored
-gh-pages
 node_modules
-server/log
-static
-temp
-test/**/coverage
-test/**/screenshots
-tmp
+coverage
+build
+env
+htmlcov
+Dockerfile-dev
+Dockerfile-prod
