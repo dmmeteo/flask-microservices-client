@@ -55,7 +55,7 @@ class App extends Component {
                 <div className='row'>
                     <div className='col-md-6'>
                         <br />
-                            <h1>All Users1</h1>
+                            <h1>All Users</h1>
                         <hr /><br />
                         <AddUser
                             username={this.state.username}
