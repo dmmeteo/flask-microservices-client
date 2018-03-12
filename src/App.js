@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Route, Switch} from 'react-router-dom';
 
 import UsersList from './components/UsersList';
 import AddUser from './components/AddUser';
@@ -55,17 +56,24 @@ class App extends Component {
                 <div className='row'>
                     <div className='col-md-6'>
                         <br />
-                            <h1>All Users</h1>
-                        <hr /><br />
-                        <AddUser
-                            username={this.state.username}
-                            email={this.state.email}
-                            handleChange={this.handleChange.bind(this)}
-                            addUser={this.addUser.bind(this)}
-                        />
-                        <br/>
-                        <UsersList users={this.state.users}/>
-                        <About/>
+                        <Switch>
+                            <Route exact path='/' render={() => (
+                                <div>
+                                    <h1>All Users</h1>
+                                    <hr /><br />
+                                    <AddUser
+                                        username={this.state.username}
+                                        email={this.state.email}
+                                        handleChange={this.handleChange.bind(this)}
+                                        addUser={this.addUser.bind(this)}
+                                    />
+                                    <br/>
+                                    <UsersList users={this.state.users}/>
+                                </div>
+                            )}/>
+
+                            <Route exact path='/about' component={About}/>
+                        </Switch>
                     </div>
                 </div>
             </div>
