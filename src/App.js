@@ -95,6 +95,7 @@ class App extends Component {
                 },
                 username: '',
                 email: '',
+                password: '',
                 isAuthenticated: true
             });
             window.localStorage.setItem('authToken', res.data.auth_token);
