@@ -39,7 +39,6 @@ class UserStatus extends Component {
         .catch((err) => { console.log(err) })
     }
     render(){
-        console.log(this.state)
         if (!this.props.isAuthenticated){
             return <p>You must be logged in to view this. Click <Link to="/login">here</Link> to log back in.</p>
         }
