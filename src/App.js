@@ -12,12 +12,12 @@ import UserStatus from './components/UserStatus';
 
 class App extends Component {
     constructor() {
-        super()
+        super();
         this.state = {
             users: [],
             title: 'FreeTestDriven',
             isAuthenticated: false
-        }
+        };
     }
 
     componentWillMount(){
@@ -35,7 +35,7 @@ class App extends Component {
         .then((res) => { 
             this.setState({ users: res.data.data.users }); 
         })
-        .catch((err) => {console.log(err);})
+        .catch((err) => {console.log(err)});
     }
 
     logoutUser() {
@@ -99,4 +99,4 @@ class App extends Component {
     }
 }
 
-export default App
+export default App;

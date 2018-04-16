@@ -25,13 +25,13 @@ const UsersList = (props) => {
                                     <td>{user.username}</td>
                                     <td>{user.created_at}</td>
                                 </tr>
-                            )
+                            );
                         })
                     }
                 </tbody>
             </Table>
         </div>
     )
-}
+};
 
 export default UsersList;

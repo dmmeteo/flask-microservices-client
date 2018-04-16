@@ -20,6 +20,6 @@ const FormErrors = (props) => {
             </ul>
         </div>
     )
-}
+};
 
 export default FormErrors;

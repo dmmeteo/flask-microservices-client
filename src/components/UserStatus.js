@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 class UserStatus extends Component {
     constructor(props){
-        super(props)
+        super(props);
         this.state = {
             created_at: '',
             email: '',
@@ -28,7 +28,7 @@ class UserStatus extends Component {
         };
         return axios(options)
         .then((res) => { 
-            let data = res.data.data
+            let data = res.data.data;
             this.setState({
                 created_at: data.created_at,
                 email: data.email,
@@ -40,7 +40,7 @@ class UserStatus extends Component {
     }
     render(){
         if (!this.props.isAuthenticated){
-            return <p>You must be logged in to view this. Click <Link to="/login">here</Link> to log back in.</p>
+            return <p>You must be logged in to view this. Click <Link to="/login">here</Link> to log back in.</p>;
         }
         return (
             <div>
