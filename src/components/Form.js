@@ -50,7 +50,8 @@ class Form extends Component {
 
     componentWillReceiveProps(nextProps){
         if (this.props.formType !== nextProps.formType) {
-            this.clearForm()
+            this.clearForm();
+            this.initRules();
         }
     }
 
@@ -134,13 +135,6 @@ class Form extends Component {
             rule.valid = false;
         }
         this.setState({formRules: rules});
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if (this.props.formType !== nextProps.formType) {
-            this.clearForm();
-            this.initRules();
-        }
     }
 
     render(){

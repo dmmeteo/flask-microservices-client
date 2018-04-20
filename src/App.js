@@ -8,6 +8,7 @@ import NavBar from './components/NavBar';
 import Form from './components/Form';
 import Logout from './components/Logout';
 import UserStatus from './components/UserStatus';
+import Message from './components/Message';
 
 
 class App extends Component {
@@ -16,7 +17,9 @@ class App extends Component {
         this.state = {
             users: [],
             title: 'FreeTestDriven',
-            isAuthenticated: false
+            isAuthenticated: false,
+            messageType: null,
+            messageName: null
         };
     }
 
@@ -28,6 +31,7 @@ class App extends Component {
 
     componentDidMount() {
         this.getUsers()
+        this.createMessage()
     }
 
     getUsers() {
@@ -49,6 +53,13 @@ class App extends Component {
         this.getUsers();
     }
 
+    createMessage(name='Sanity Chech', type='success'){
+        this.setState({
+            messageName: name,
+            messageType: type
+        })
+    }
+
     render() {
         return (
             <div>
@@ -57,6 +68,12 @@ class App extends Component {
                     isAuthenticated={this.state.isAuthenticated}
                 />
                 <div className='container'>
+                    {this.state.messageName && this.state.messageType &&
+                        <Message
+                            messageName={this.state.messageName}
+                            messageType={this.state.messageType}
+                        />
+                    }
                     <div className='row'>
                         <div className='col-md-6'>
                             <br />
