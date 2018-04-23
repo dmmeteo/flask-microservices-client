@@ -44,8 +44,6 @@ class App extends Component {
     logoutUser() {
         window.localStorage.clear();
         this.setState({isAuthenticated: false});
-        this.getUsers();
-        this.createMessage('Welcome!', 'success');
     }
 
     loginUser(token) {
