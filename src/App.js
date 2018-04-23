@@ -53,10 +53,20 @@ class App extends Component {
         this.createMessage('Welcome!', 'success');
     }
 
-    createMessage(name='Sanity Chech', type='success'){
+    createMessage(name='Sanity Check', type='success'){
         this.setState({
             messageName: name,
             messageType: type
+        });
+        setTimeout(() => {
+            this.removeMessage()
+        }, 3000);
+    }
+
+    removeMessage(){
+        this.setState({
+            messageName: null,
+            messageType: null
         })
     }
 
@@ -72,6 +82,7 @@ class App extends Component {
                         <Message
                             messageName={this.state.messageName}
                             messageType={this.state.messageType}
+                            removeMessage={this.removeMessage.bind(this)}
                         />
                     }
                     <div className='row'>
@@ -87,6 +98,7 @@ class App extends Component {
                                         formType={'register'}
                                         isAuthenticated={this.state.isAuthenticated}
                                         loginUser={this.loginUser.bind(this)}
+                                        createMessage={this.createMessage.bind(this)}
                                     />
                                 )}/>
                                 <Route exact path='/login' render={() => (
@@ -94,6 +106,7 @@ class App extends Component {
                                         formType={'login'}
                                         isAuthenticated={this.state.isAuthenticated}
                                         loginUser={this.loginUser.bind(this)}
+                                        createMessage={this.createMessage.bind(this)}
                                     />
                                 )}/>
                                 <Route exact path='/logout' render={() => (

@@ -13,6 +13,7 @@ const Message = (props) => {
             <button
                 className="close"
                 data-dismiss="alert"
+                onClick={() => props.removeMessage()}
             >&times;</button>
         </div>
     )
