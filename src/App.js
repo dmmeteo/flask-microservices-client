@@ -31,7 +31,6 @@ class App extends Component {
 
     componentDidMount() {
         this.getUsers()
-        this.createMessage()
     }
 
     getUsers() {
@@ -45,12 +44,15 @@ class App extends Component {
     logoutUser() {
         window.localStorage.clear();
         this.setState({isAuthenticated: false});
+        this.getUsers();
+        this.createMessage('Welcome!', 'success');
     }
 
     loginUser(token) {
         window.localStorage.setItem('authToken', token);
         this.setState({isAuthenticated: true});
         this.getUsers();
+        this.createMessage('Welcome!', 'success');
     }
 
     createMessage(name='Sanity Chech', type='success'){
