@@ -12,6 +12,9 @@ import Message from './components/Message';
 
 
 class App extends Component {
+  boba(porps){
+    console.log('hui')
+  }
     constructor() {
         super();
         this.state = {
