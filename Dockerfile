@@ -20,7 +20,7 @@ RUN yarn build
 
 
 # production environment
-FROM nginx:1.13.5-alpine
+FROM nginx:latest
 RUN rm -rf /etc/nginx/conf.d
 COPY conf /etc/nginx
 COPY --from=builder /usr/src/app/build /usr/share/nginx/html
